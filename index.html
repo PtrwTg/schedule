@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 กำหนดการงานรับปริญญา </title>
+    <style>
+        /* Base and Font */
+        body {
+            font-family: 'Sarabun', 'Anuphan', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; 
+            color: #1f3349; 
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 850px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            padding: 0; 
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden; 
+        }
+        .content-area {
+            padding: 20px 30px; 
+        }
+
+        /* Header (Modern Gradient) */
+        .header-title {
+            background-image: linear-gradient(120deg, #00563b 0%, #33cc33 100%); 
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header-title h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #FFD700; 
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header-title p {
+            margin: 8px 0 0;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* --- Custom Text Highlighting --- */
+        .text-highlight {
+            color: #d9534f; 
+            font-weight: 700;
+        }
+        .location-highlight {
+            color: #00563b; 
+            font-weight: 700;
+        }
+        .important-alert {
+            color: #b30000; 
+            font-weight: 700;
+        }
+
+        /* Navigation Tabs (Sleek) */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #f9f9f9;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .tab-button {
+            background: none;
+            color: #00563b; 
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            flex-grow: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .tab-button:hover {
+            background-color: #e6ffe6; 
+        }
+        .tab-button.active {
+            color: #FFD700; 
+            background-color: #00563b; 
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        th, td {
+            border: none; 
+            padding: 15px;
+            font-size: 0.95em;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        th {
+            background-color: #006400;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+        }
+        /* Highlight for Best Photo Time */
+        .highlight-photo {
+            background-color: #fff8e1; 
+            font-weight: bold;
+            color: #8b6e23;
+            border-left: 5px solid #FFD700;
+        }
+        
+        /* Notes Box (Friendly/Info) */
+        .notes-box {
+            background-color: #f2fff2;
+            border: 1px solid #c8e6c9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        .notes-box h4 {
+            color: #b30000; 
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        /* LINE Registration Button */
+        .line-button-area {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .line-register-btn {
+            display: inline-block;
+            background-color: #00B900; 
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 185, 0, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite; 
+        }
+        .line-register-btn:hover {
+            background-color: #00a000;
+            box-shadow: 0 6px 20px rgba(0, 185, 0, 0.6);
+            transform: translateY(-2px);
+            animation: none;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-title">
+            <h1>🎓 กำหนดการ งานรับปริญญา อย่างง่าย</h1>
+            <p>มาแสดงความยินดีด้วยกันเด้ออ้าย</p>
+            <p>คณะศิลปศาสตร์และวิทยาศาสตร์ <span class="text-highlight">สาขาวิทยาการคอมพิวเตอร์</span> ม.เกษตรฯ</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'Welcome')">👋 ขอบคุณ & ลงทะเบียน</button>
+            <button class="tab-button" onclick="openTab(event, 'Day3')">🗓️ ตารางวันซ้อม (3 ต.ค.)</button>
+            <button class="tab-button" onclick="openTab(event, 'Day7')">🎉 ตารางวันจริง (7 ต.ค.)</button>
+        </div>
+
+        <div id="Welcome" class="tab-content active content-area">
+            <h3>❤️ ยินดีที่ได้พบทั้งเพื่อนเก่าเพื่อนใหม่</h3>
+            <p>ขอบคุณล่วงหน้าสำหรับคนที่สนใจโอกาสสำคัญครั้งนี้นะครับ หากได้เจอก็ดีไม่ได้เจอก็ดี แต่เพื่อให้เจอกันได้ง่าย ๆ โปรดดูกำหนดการและเวลาที่มหาลัยประกาศให้มาด้วยนะครับ และข้อควรระวังอื่น ๆ เช่นกัน</p>
+
+            <div class="line-button-area">
+                <a href="https://liff.line.me/2008162847-jMMzgOn1" target="_blank" class="line-register-btn">
+                    คลิก! ลงทะเบียนมาจอยงานรับปริญญา (ผ่าน LINE)
+                </a>
+            </div>
+            
+            <div class="notes-box">
+                <h4>📍 โลเคชั่นหลัก</h4>
+                <p>สำหรับงานจะแบ่งเป็นซ้อมใหญ่และวันจริง โดยในวันที่ 3 (ซ้อมใหญ่) จะดำเนินงานที่ <span class="location-highlight">ศูนย์เรียนรวม 1 (ศร.1)</span> และในวันที่ 7 จะเป็นบริเวณ <span class="location-highlight">อาคารจักรพันธ์เพ็ญศิริ</span> ที่ ม.เกษตรฯ บางเขนเป็นหลักเลยคับ</p>
+                <p>📲 <span class="text-highlight">ย้ำอีกที:</span> นัดล่วงหน้ากับบัณฑิตก่อนมาจะชัวร์สุดนะ!</p>
+            </div>
+        </div>
+
+        <div id="Day3" class="tab-content content-area">
+            <h3>🗓️ ตารางวันซ้อม: ศุกร์ที่ 3 ตุลาคม 2568 (อัปเดตล่าสุด)</h3>
+            <p>วันนี้ต้องซ้อมจริงจัง! <span class="text-highlight">ช่วงที่ว่างจริง ๆ คือช่วงพักเที่ยง และหลัง 13.30 น.</span> ผมพร้อมรอเจอทุกคนเลยครับ!</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">ช่วงเวลา</th>
+                        <th style="width: 50%;">กิจกรรม/บัณฑิตทำอะไร?</th>
+                        <th style="width: 25%;">อยู่แถวไหน?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>07.00 - 07.30 น.</td>
+                        <td>ลงทะเบียน & ฝึกซ้อมรับปริญญาเบื้องต้น</td>
+                        <td><span class="location-highlight">ศูนย์เรียนรวม 1 (ศร.1)</span></td>
+                    </tr>
+                    <tr>
+                        <td>07.30 - 10.45 น.</td>
+                        <td>ฝึกซ้อมย่อยระดับหลักสูตร (เช้า)</td>
+                        <td><span class="location-highlight">ศูนย์เรียนรวม 1 (ศร.1)</span></td>
+                    </tr>
+                    <tr class="highlight-photo">
+                        <td><span class="text-highlight">10.45 - 11.30 น.</span></td>
+                        <td><span class="text-highlight">พักรับประทานอาหารกลางวัน (พอมีเวลาถ่ายรูปเบาๆ)</span></td>
+                        <td>รอบ ศร.1 / โรงอาหาร</td>
+                    </tr>
+                    <tr>
+                        <td>11.30 - 12.00 น.</td>
+                        <td>จัดแถวเพื่อเข้าร่วมพิธีซ้อมรับปริญญาบัตรบัณฑิตระดับคณะ</td>
+                        <td>หน้าห้องประชุม ศร.1</td>
+                    </tr>
+                    <tr>
+                        <td>12.00 - 13.30 น.</td>
+                        <td>ฝึกซ้อมรับปริญญาบัตรบัณฑิตระดับคณะ</td>
+                        <td><span class="location-highlight">อาคารจักรพันธ์เพ็ญศิริ</span></td>
+                    </tr>
+                    <tr class="highlight-photo">
+                         <td><span class="text-highlight">13.30 น. เป็นต้นไป</span></td>
+                        <td><span class="text-highlight">จบซ้อมเช้าแล้ว! (ช่วงเวลาทองคำ นัดมาเมาท์/ถ่ายรูปได้เลย!)</span></td>
+                        <td>ทั่วบริเวณ มก.</td>
+                    </tr>
+                    <tr>
+                        <td>14.00 - 20.00 น.</td>
+                        <td>ซ้อมใหญ่ (รอบบ่าย) <span class="important-alert">(บัณฑิตไม่ว่าง/ยุ่งมาก)</span></td>
+                        <td><span class="location-highlight">ศูนย์เรียนรวม 1 / อาคารจักรพันธ์เพ็ญศิริ</span></td>
+                    </tr>
+                    <tr class="highlight-photo">
+                         <td><span class="text-highlight">หลัง 20.00 น.</span></td>
+                        <td><span class="text-highlight">เสร็จสิ้นภารกิจ! ผมพร้อมรอเจอทุกคนที่ยังอยู่ครับ!</span></td>
+                        <td>ทั่วบริเวณ มก.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>หมายเหตุ: บัณฑิตจะต้องเข้าร่วม **ฝึกซ้อมใหญ่ (รอบบ่าย) 14.00 - 20.00 น.** แต่ <span class="important-alert">ช่วงนี้ไม่เหมาะกับการนัดพบ/ถ่ายรูปอย่างเป็นทางการ</span> แต่หากยังอยากมาหาหลัง 2 ทุ่ม ก็มาได้เลยนะครับ!</p>
+        </div>
+
+        <div id="Day7" class="tab-content content-area">
+            <h3>🎉 ตารางวันจริง: อังคารที่ 7 ตุลาคม 2568</h3>
+            <p><span class="text-highlight">มาได้เลยตั้งแต่เช้า!</span> ช่วงที่ดีที่สุดในการเจอกันคือ <span class="text-highlight">ช่วงถ่ายภาพหมู่ (เช้า 8.30-8.45 น.)</span> และ <span class="text-highlight">หลังพิธี (บ่าย 2)</span> น้าาา</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">ช่วงเวลา</th>
+                        <th style="width: 50%;">กิจกรรม/บัณฑิตทำอะไร?</th>
+                        <th style="width: 25%;">อยู่แถวไหน?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-photo">
+                        <td><span class="text-highlight">เช้าตรู่ (มาได้เลย!)</span></td>
+                        <td>บัณฑิตเตรียมตัว/ถ่ายรูปรอเพื่อนๆ</td>
+                        <td>รอบ ม.ก.</td>
+                    </tr>
+                    <tr class="highlight-photo">
+                        <td><span class="text-highlight">08.30 - 08.45 น.</span></td>
+                        <td><span class="text-highlight">ถ่ายภาพหมู่คณะ (กลุ่มที่ 3: วท.บ. คอมพิวเตอร์)</span></td>
+                        <td><span class="location-highlight">คณะมนุษยศาสตร์</span></td>
+                    </tr>
+                    <tr>
+                        <td>09.00 - 10.00 น.</td>
+                        <td>ลงทะเบียนเข้าร่วมพิธี (แยกตามห้องที่กำหนด)</td>
+                        <td><span class="location-highlight">ห้อง 332 ชั้น 3 ศร.1</span></td>
+                    </tr>
+                    <tr>
+                        <td>10.00 - 11.00 น.</td>
+                        <td>เตรียมความพร้อม/จัดแถวเข้าหอประชุม</td>
+                        <td>หน้าห้องหลักสูตร ศร.1 / ศูนย์เรียนรวม 1</td>
+                    </tr>
+                    <tr>
+                        <td>11.00 น. - จนจบพิธี</td>
+                        <td>เดินแถวเข้าสู่ / พิธีพระราชทานปริญญาบัตร</td>
+                        <td><span class="location-highlight">อาคารจักรพันธ์เพ็ญศิริ</span></td>
+                    </tr>
+                    <tr class="highlight-photo">
+                        <td><span class="text-highlight">หลัง 14.00 น. (โดยประมาณ)</span></td>
+                        <td><span class="text-highlight">พิธีจบแล้ว! (นัดมาฉลอง & ถ่ายรูปได้เลย!)</span></td>
+                        <td>ทั่วบริเวณ มก.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="notes-box content-area">
+            <h4>🚨 เรื่องที่ต้องรู้ (<span class="important-alert">โคตรสำคัญ</span>)</h4>
+            <ul>
+                <li><span class="important-alert">รถติดหนักมาก!</span> วันจริงรถเยอะเวอร์ แนะนำเผื่อเวลาเดินทางและการหาที่จอดรถ <span class="important-alert">อย่างน้อย 1-2 ชั่วโมง</span> เลยนะ</li>
+                <li>เบอร์ติดต่อด่วน: 📞 <span class="location-highlight">0838152351</span> | LINE ID: <span class="location-highlight">mawzaz0002</span></li>
+                <li>จุดนัดพบ: วันที่ 3 (ซ้อม) <span class="location-highlight">ศูนย์เรียนรวม 1</span> , วันที่ 7 (จริง) <span class="location-highlight">อาคารจักรพันธ์เพ็ญศิริ</span> และ <span class="location-highlight">คณะมนุษยศาสตร์</span> (เช้า)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript function to handle tab switching
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Deactivate all tab buttons
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab and activate the button
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Default: Open the Welcome tab on load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Check if the 'Welcome' tab exists and open it
+            const welcomeTab = document.getElementById('Welcome');
+            const welcomeButton = document.querySelector('.tab-button[onclick*="Welcome"]');
+            if (welcomeTab && welcomeButton) {
+                welcomeTab.style.display = "block";
+                welcomeButton.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
